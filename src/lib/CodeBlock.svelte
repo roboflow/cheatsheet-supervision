@@ -4,6 +4,7 @@
     import bash from "svelte-highlight/languages/bash";
     import "svelte-highlight/styles/github.css";
     import { toast } from '@zerodevx/svelte-toast'
+    import { base } from '$app/paths';
 
     export let code: string;
     export let preface: string = "";
@@ -27,7 +28,7 @@
     <div class="bg-slate-300 relative">
         <Highlight language={isBash ? bash : python} {code} class="text-xs opacity-85"/>
         <button class="copy-button" on:click={onClickCopy}>
-            <img src="/copy.svg" alt="Copy" class="w-4 h-4"/>
+            <img src="{base}/copy.svg" alt="Copy" class="w-4 h-4"/>
         </button>
     </div>
 </div>

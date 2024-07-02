@@ -1,9 +1,13 @@
+<script>
+    import { base } from '$app/paths';
+</script>
+
 <!-- <div class={`w-[1123px] h-[794px] flex flex-col bg-white .page-root`}> -->
 <div class={`w-[1123px] pb-2 flex flex-col bg-white page-root overflow-hidden`}>
     <!-- Banner -->
     <div class="h-1/2 p-1 flex justify-center flex-col items-center mb-2">
         <a href="https://supervision.roboflow.com/latest/" target="_blank" class="flex justify-center">
-            <img src="/rf-supervision-cheatsheet-banner.png" alt="banner" class="w-11/12"/>
+            <img src="{base}/rf-supervision-cheatsheet-banner.png" alt="banner" class="w-11/12"/>
         </a>
         <div class="flex flex-row text-sm justify-evenly w-full">
             <span>
