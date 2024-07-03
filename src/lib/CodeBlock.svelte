@@ -1,14 +1,14 @@
 <script lang="ts">
     import Highlight from "svelte-highlight";
     import python from "svelte-highlight/languages/python";
-    import bash from "svelte-highlight/languages/bash";
+    import bashLang from "svelte-highlight/languages/bash";
     import "svelte-highlight/styles/github.css";
     import { toast } from '@zerodevx/svelte-toast'
     import { base } from '$app/paths';
 
     export let code: string;
     export let preface: string = "";
-    export let isBash: boolean = false;
+    export let bash: boolean = false;
 
     function onClickCopy() {
         navigator.clipboard.writeText(code);
@@ -26,7 +26,7 @@
         <p class="text-xs px-2 opacity-90">{preface}</p>
     {/if}
     <div class="bg-slate-300 relative">
-        <Highlight language={isBash ? bash : python} {code} class="text-[0.5rem] sm:text-xs opacity-85"/>
+        <Highlight language={bash ? bashLang : python} code={code.trim()} class="text-[0.5rem] sm:text-xs opacity-85"/>
         <button class="copy-button" on:click={onClickCopy}>
             <img src="{base}/copy.svg" alt="Copy" class="w-4 h-4"/>
         </button>

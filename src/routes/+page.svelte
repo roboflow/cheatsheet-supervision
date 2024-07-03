@@ -3,14 +3,6 @@
     import SplashPage from "$lib/SplashPage.svelte";
     import CodeBlock from "$lib/CodeBlock.svelte";
 	import Section from "$lib/Section.svelte";
-    import codeAnnotate from "$lib/code/annotate"
-    import codeAnnotateSeg from "$lib/code/annotateSeg"
-    import codeAnnotateKp from "$lib/code/annotateKp";
-    import codeModelsInference from "$lib/code/modelsInference"
-    import codeModelsUltralytics from "$lib/code/modelsUltralytics"
-    import codeModelsTransformers from "$lib/code/modelsTransformers"
-    import codeModelsInferenceSeg from "$lib/code/modelsInferenceSeg"
-    import codeModelsUltralyticsSeg from "$lib/code/modelsUltralyticsSeg"
 </script>
 
 <svelte:head>
@@ -45,19 +37,19 @@
 
             <div class="mt-2"/>
             <Section header="Quickstart">
-                <CodeBlock isBash code={`pip install supervision inference -q`} />
-                <CodeBlock isBash code={`\
+                <CodeBlock bash code={`pip install supervision inference -q`} />
+                <CodeBlock bash code={`
 wget https://media.roboflow.com/notebooks/examples/dog.jpeg`} />
-                <CodeBlock code={`\
+                <CodeBlock code={`
 import cv2
 import supervision as sv
 from inference import get_model`} />
-<CodeBlock code={`\
+<CodeBlock code={`
 image = cv2.imread("dog.jpeg")
 model = get_model(model_id="yolov8n-640")
 results = model.infer(image)[0]
 detections = sv.Detections.from_inference(results)`} />
-                <CodeBlock code={`\
+                <CodeBlock code={`
 annotated_image = sv.BoundingBoxAnnotator().annotate(
     scene=image.copy(), detections=detections
 )
@@ -92,13 +84,13 @@ sv.plot_image(annotated_image)
 
             <div class="mt-4"/>
             <Section header="Read images & Videos">
-                <CodeBlock preface="Load a single image" code={`\
+                <CodeBlock preface="Load a single image" code={`
 import cv2
 image = cv2.imread("dog.jpeg")`} />
-                <CodeBlock preface="Iterate over video frames" code={`\
+                <CodeBlock preface="Iterate over video frames" code={`
 for frame in sv.get_video_frames_generator(source_path=<VIDEO_PATH>):
     print(frame.shape)`} />
-                <CodeBlock preface="Run a function over every frame, save output" code={`\
+                <CodeBlock preface="Run a function over every frame, save output" code={`
 import numpy as np
 
 def callback(scene: np.ndarray, index: int) -> np.ndarray:
@@ -117,9 +109,40 @@ sv.process_video(
         <div slot="col1">
             <CodeBlock code={`import cv2\nimport supervision as sv\n\nimage = cv2.imread("dog.jpeg")`}/>
             <Section header="Frequent choices: Inference, Ultralytics & Transfomers">
-                <CodeBlock code={codeModelsInference[0]} />
-                <CodeBlock code={codeModelsUltralytics[0]} />
-                <CodeBlock code={codeModelsTransformers[0]} />
+                <CodeBlock code={`
+from inference import get_model
+
+model = get_model(model_id="yolov8n-640")
+results = model.infer(image)[0]
+detections = sv.Detections.from_inference(results)`} />
+                <CodeBlock code={`
+from ultralytics import YOLO
+
+model = YOLO("yolov8n.pt")
+results = model(image)[0]
+detections = sv.Detections.from_ultralytics(results)`} />
+                <CodeBlock code={  
+`import torch
+from PIL import Image
+from transformers import DetrImageProcessor, DetrForObjectDetection
+
+processor = DetrImageProcessor.from_pretrained("facebook/detr-resnet-50")
+model = DetrForObjectDetection.from_pretrained("facebook/detr-resnet-50")
+
+image = Image.open("dog.jpeg")
+inputs = processor(images=image, return_tensors="pt")
+
+with torch.no_grad():
+    outputs = model(**inputs)
+
+target_size = torch.tensor([[image.size[1], image.size[0]]])
+results = processor.post_process_object_detection(
+    outputs=outputs, target_sizes=target_size)[0]
+
+detections = sv.Detections.from_transformers(
+    transformers_results=results,
+    id2label=model.config.id2label)`}
+                />
             </Section>
             <div class="flex flex-row justify-center text-lg font-bold">
                 <a href="https://supervision.roboflow.com/latest/detection/core/" target="_blank" class="underline text-blue-500">+9 more connectors</a>&nbsp;⚡
@@ -127,7 +150,16 @@ sv.process_video(
         </div>
         <div slot="col2">
             <Section header="Annotate Detection">
-                <CodeBlock code={codeAnnotate[0]}/>
+                <CodeBlock code={
+`bounding_box_annotator = sv.BoundingBoxAnnotator()
+label_annotator = sv.LabelAnnotator()
+
+annotated_image = bounding_box_annotator.annotate(
+    scene=image.copy(), detections=detections)
+annotated_image = label_annotator.annotate(
+    scene=annotated_image, detections=detections)
+
+sv.plot_image(annotated_image)`}/>
                 <div class="flex flex-row justify-center text-lg font-bold">
                     <a href="https://supervision.roboflow.com/develop/detection/annotators/" target="_blank" class="underline text-blue-500">+18 more annotators</a>&nbsp;🎨
                 </div>
@@ -138,11 +170,32 @@ sv.process_video(
                         For <code>inference</code> and <code>ultralytics</code>, you only need to change the model ID:
                     </span>
                 </div>
-                <CodeBlock code={codeModelsInferenceSeg[0]} />
-                <CodeBlock code={codeModelsUltralyticsSeg[0]} />
+                <CodeBlock code={
+`from inference import get_model
+
+model = get_model(model_id="yolov8n-seg-640")
+results = model.infer(image)[0]
+detections = sv.Detections.from_inference(results)`} />
+                <CodeBlock code={
+`from ultralytics import YOLO
+
+model = YOLO("yolov8n-seg.pt")
+results = model(image)[0]
+detections = sv.Detections.from_ultralytics(results)`
+                } />
             </Section>
             <Section header="Annotate Segmentation">
-                <CodeBlock code={codeAnnotateSeg[0]} />
+                <CodeBlock code={
+`mask_annotator = sv.MaskAnnotator()
+label_annotator = sv.LabelAnnotator()
+
+annotated_image = mask_annotator.annotate(
+    scene=image.copy(), detections=detections)
+annotated_image = label_annotator.annotate(
+    scene=annotated_image, detections=detections)
+
+sv.plot_image(annotated_image)`
+                } />
             </Section>
         </div>
     </Page>
@@ -151,7 +204,7 @@ sv.process_video(
         <div slot="col1">
             <CodeBlock code={`import cv2\nimport supervision as sv\n\nimage = cv2.imread("dog.jpeg")`} />
             <Section header="Inference">
-                <CodeBlock code={`\
+                <CodeBlock code={`
 from inference import get_model
 
 model = get_model(model_id="yolov8s-pose-640")
@@ -162,7 +215,7 @@ key_points = sv.KeyPoints.from_inference(results)
                 />
             </Section>
             <Section header="Ultralytics">
-                <CodeBlock code={`\
+                <CodeBlock code={`
 from ultralytics import YOLO
 
 model = YOLO("yolov8s-pose.pt")
@@ -173,7 +226,7 @@ key_points = sv.KeyPoints.from_ultralytics(results)`} />
             </Section>
 
             <Section header="Yolo NAS">
-                <CodeBlock code={`\
+                <CodeBlock code={`
 import torch
 import super_gradients
 
@@ -189,7 +242,7 @@ key_points = sv.KeyPoints.from_yolo_nas(results)`
 
         </div>
         <div slot="col2">
-            <CodeBlock preface={`⚠️ Available in pre-release: pip install git+https://github.com/roboflow/supervision.git@develop `} code={`\
+            <CodeBlock preface={`⚠️ Available in pre-release: pip install git+https://github.com/roboflow/supervision.git@develop `} code={`
 import mediapipe as mp
 
 image = cv2.imread("dog.jpeg")
@@ -213,7 +266,17 @@ key_points = sv.KeyPoints.from_mediapipe(
     pose_landmarker_result, (image_width, image_height))`} />
     
         <Section header="Annotate KeyPoints">
-            <CodeBlock code={codeAnnotateKp[0]}/>
+            <CodeBlock code={
+`vertex_annotator = sv.VertexAnnotator(radius=10)
+edge_annotator = sv.EdgeAnnotator(thickness=5)
+
+annotated_frame = edge_annotator.annotate(
+    scene=image.copy(),
+    key_points=key_points
+)
+annotated_frame = vertex_annotator.annotate(
+    scene=annotated_frame,
+    key_points=key_points)`}/>
             <div class="flex flex-row justify-center text-lg font-bold">
                 <a href="https://supervision.roboflow.com/develop/detection/annotators/" target="_blank" class="underline text-blue-500">+1 more annotator</a>&nbsp;🎨
             </div>
@@ -223,7 +286,7 @@ key_points = sv.KeyPoints.from_mediapipe(
 
     <Page header="What can supervision do?">
         <div slot="col1">
-            <CodeBlock code={`\
+            <CodeBlock code={`
 import cv2
 import supervision as sv
 from inference import get_model
@@ -231,7 +294,7 @@ from inference import get_model
 `} />
 
             <Section header="Track Object Movement">
-                <CodeBlock code={`\
+                <CodeBlock code={`
 video_info = sv.VideoInfo.from_video_path(video_path=<VIDEO_PATH>)
 frames_generator = sv.get_video_frames_generator(source_path=<VIDEO_PATH>)
 
@@ -255,7 +318,7 @@ with sv.VideoSink(target_path="out.mp4", video_info=video_info) as sink:
 
             </Section>
             <Section header="Count objects crossing a LineZone">
-                <CodeBlock code={`\
+                <CodeBlock code={`
 frames_generator = sv.get_video_frames_generator(source_path=<VIDEO_PATH>)
 model = get_model("yolov8s-640")
 tracker = sv.ByteTrack()
@@ -274,7 +337,7 @@ print(line_zone.in_count, line_zone.out_count)`
         </div>
         <div slot="col2">
             <Section header="Detect Small Objects">
-                <CodeBlock preface={"InferenceSlicer breaks the image into small parts and runs the model on each one"} code={`\
+                <CodeBlock preface={"InferenceSlicer breaks the image into small parts and runs the model on each one"} code={`
 import cv2
 import supervision as sv
 from inference import get_model
@@ -296,7 +359,7 @@ detections = slicer(image)`
 
             </Section>
             <Section header="Count objects inside PolygonZone">
-                <CodeBlock code={`\
+                <CodeBlock code={`
 frames_generator = sv.get_video_frames_generator(source_path=<VIDEO_PATH>)
 model = get_model("yolov8s-640")
 tracker = sv.ByteTrack()
@@ -320,7 +383,7 @@ for frame in frames_generator:
     <Page header="What can supervision do? (continued)">
         <div slot="col1">
             <Section header="Save Detections to CSV">
-                <CodeBlock code={`\
+                <CodeBlock code={`
 frames_generator = sv.get_video_frames_generator(<VIDEO_PATH>)
 model = get_model("yolov8s-640")
 
@@ -336,7 +399,7 @@ with csv_sink as sink:
 
 <Section header="Save Detections to JSON">
 
-    <CodeBlock code={`\
+    <CodeBlock code={`
 frames_generator = sv.get_video_frames_generator(<VIDEO_PATH>)
 model = get_model("yolov8s-640")
 
@@ -352,8 +415,8 @@ with json_sink as sink:
         </div>
         <div slot="col2">
             <Section header="Run a fine-tuned LMM">
-                <CodeBlock code={`pip install peft -q`} isBash />
-                <CodeBlock code={`\
+                <CodeBlock code={`pip install peft -q`} bash />
+                <CodeBlock code={`
 from inference.models.paligemma.paligemma import PaliGemma
 from PIL import Image
 
@@ -373,7 +436,7 @@ detections = sv.Detections.from_lmm(
                 />
             </Section>
             <Section header="Compute Metrics">
-                <CodeBlock code={`\
+                <CodeBlock code={`
 dataset = sv.DetectionDataset.from_yolo("<PATH_TO_DATASET>")
 
 model = get_model("yolov8s-640")
@@ -395,30 +458,30 @@ print(confusion_matrix.matrix)
     <Page header="Utilities">
         <div slot="col1">
             <Section header="sv.Detections Operations">
-                <CodeBlock preface={"Empty detections. Returned by every model when nothing is detected."} code={`\
+                <CodeBlock preface={"Empty detections. Returned by every model when nothing is detected."} code={`
 empty_detections = sv.Detections.empty()
 if empty_detections.is_empty():
     print("Nothing was detected!")`}
                 />
                 <CodeBlock preface={"Count detected objects"} code={`len(detections)`} />
-                <CodeBlock preface={"Loop over detection results"} code={`\
+                <CodeBlock preface={"Loop over detection results"} code={`
 for xyxy, mask, confidence, class_id, tracker_id, data in detections:
     print(xyxy, mask, confidence, class_id, tracker_id, data)`} />
-                <CodeBlock preface={"Filter detections by class"} code={`\
+                <CodeBlock preface={"Filter detections by class"} code={`
 detections = sv.Detections.from_inference(results)
 detections = detections[detections.class_id == 0]`} />
-                <CodeBlock preface={"Filter by class name"} code={`\
+                <CodeBlock preface={"Filter by class name"} code={`
 detections = sv.Detections.from_inference(results)
 detections = detections[detections.data["class_name"] == "cat"]`} />
-                <CodeBlock preface={"Merge multiple sv.Detections"} code={`\
+                <CodeBlock preface={"Merge multiple sv.Detections"} code={`
 detections1 = sv.Detections.from_inference(results1)
 detections2 = sv.Detections.from_inference(results2)
 merged_detections = sv.Detections.merge([detections1, detections2])`} />
             </Section>
             <Section header="Video Assets">
-                <CodeBlock isBash preface={"supervision provides a handful of videos for testing"} code={`\
+                <CodeBlock bash preface={"supervision provides a handful of videos for testing"} code={`
 pip install "supervision[assets]" -q`} />
-                <CodeBlock code={`\
+                <CodeBlock code={`
 from supervision.assets import download_assets, VideoAssets
 
 download_assets(VideoAssets.VEHICLES)
@@ -430,24 +493,24 @@ print(VideoAssets.VEHICLES.value)`} />
             <Section header={"Image Utilities"}>
                 <CodeBlock preface={"Crop image"} code={`cropped_image = sv.crop_image(image=image, xyxy=[200, 400, 600, 800])`} />
                 <CodeBlock preface={"Scale image"} code={`scaled_image = sv.scale_image(image=image, scale_factor=0.5)`} />
-                <CodeBlock preface={"Resize image"} code={`\
+                <CodeBlock preface={"Resize image"} code={`
 resized_image = sv.resize_image(
     image=image, resolution_wh=(1000, 1000), keep_aspect_ratio=True)`} />
-                <CodeBlock preface={"Letterbox image (resize + pad)"} code={`\
+                <CodeBlock preface={"Letterbox image (resize + pad)"} code={`
 letterboxed_image = sv.letterbox_image(
     image=image, resolution_wh=(1000, 1000))`} />
-                <CodeBlock preface={"Overlay image"} code={`\
+                <CodeBlock preface={"Overlay image"} code={`
 overlay = np.zeros((400, 400, 3), dtype=np.uint8)
 resulting_image = sv.overlay_image(
     image=image, overlay=overlay, anchor=(200, 400)`} />
             </Section>
 
             <Section header="for Google Colab">
-                <CodeBlock preface={"Install custom branch of supervision"} isBash code={`\
+                <CodeBlock preface={"Install custom branch of supervision"} bash code={`
 pip install git+https://github.com/YourName/supervision.git@your-branch`} />
-                <CodeBlock preface={"Display image in Colab by converting to PIL"} isBash code={`\
+                <CodeBlock preface={"Display image in Colab by converting to PIL"} bash code={`
 sv.cv2_to_pillow(frame)`} />
-                <CodeBlock preface={"Display image in Colab by plotting with matplotlib"} isBash code={`\
+                <CodeBlock preface={"Display image in Colab by plotting with matplotlib"} bash code={`
 %matplotlib inline\nsv.plot_image(frame)`} />
             </Section>
         </div>
