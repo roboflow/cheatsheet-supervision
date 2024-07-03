@@ -4,9 +4,9 @@
 
 
 <!-- <div class={`w-[1123px] h-[794px] flex flex-col bg-white page-root overflow-hidden`}> -->
-<div class={`w-[562px] xl:w-[1124px] pb-2 flex flex-col bg-white page-root overflow-hidden`}>
+<div class={`w-11/12 sm:w-[562px] xl:w-[1124px] pb-2 flex flex-col bg-white page-root overflow-hidden`}>
     <!-- Header -->
-    <div class="bg-[#8622FF] text-white p-2 text-2xl font-inter font-bold">
+    <div class="bg-[#8622FF] text-white p-2 text-xl sm:text-2xl font-inter font-bold">
         <h1>{header}</h1>
     </div>
 

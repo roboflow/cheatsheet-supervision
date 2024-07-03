@@ -26,7 +26,7 @@
         <div slot="col1">
             <!-- Describes what supervision is, and the typical process -->
             <Section header="Basic Principles">
-                <div class="text-xs xl:text-sm px-2 pb-2">
+                <div class="text-[0.6rem] sm:text-xs xl:text-sm px-2 pb-2">
                     <p>
                         Supervision simplifies the process of working with vision models. It offers connectors to popular model libraries, a plethora of visualizers (annotators), powerful post-processing features and an easy learning curve.
                     </p>
@@ -457,7 +457,7 @@ sv.cv2_to_pillow(frame)`} />
 
 <style>
     ul {
-        @apply text-xs list-disc;
+        @apply text-[0.6rem] sm:text-xs list-disc;
     }
     code {
         color:#8315F9;
