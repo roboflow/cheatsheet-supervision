@@ -8,16 +8,16 @@
 		<link href="./_app/immutable/assets/0.DAodkQek.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/SvelteToast.DbLvtVfH.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/2.BznyKz_D.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.CWut4yNN.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/entry.DoMceUM-.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.EmKtaVkm.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.9MQZq3f1.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.DWXbcp65.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.C1Jz7-OR.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/paths.BQ68hvQ6.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.k4GBffrW.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/paths.Dtsx-JiJ.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.p1jBdoSl.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.B4bXROcz.js">
 		<link rel="modulepreload" href="./_app/immutable/nodes/0.AqKwPJQN.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/SvelteToast.svelte_svelte_type_style_lang.BJQJhhTT.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.zuxIp6q7.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.D2N_xAeG.js">
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,7 +124,7 @@ results = model.infer(image)[<span class="hljs-number">0</span>]
 key_points = sv.KeyPoints.from_inference(results)
 <!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div> <div class="flex flex-col"><h2 class="text-xl font-inter"><span class="text-[#8622FF] text-xl ml-1 mb-1" data-svelte-h="svelte-6hn1qy">›</span> Ultralytics</h2> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">from</span> ultralytics <span class="hljs-keyword">import</span> YOLO
 
-model = YOLO(<span class="hljs-string">&#x27;yolov8s-pose.pt&#x27;</span>)
+model = YOLO(<span class="hljs-string">&quot;yolov8s-pose.pt&quot;</span>)
 
 results = model(image)[<span class="hljs-number">0</span>]
 key_points = sv.KeyPoints.from_ultralytics(results)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div> <div class="flex flex-col"><h2 class="text-xl font-inter"><span class="text-[#8622FF] text-xl ml-1 mb-1" data-svelte-h="svelte-6hn1qy">›</span> Yolo NAS</h2> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">import</span> torch
@@ -237,7 +237,7 @@ csv_sink = sv.CSVSink(<span class="hljs-string">&quot;out.csv&quot;</span>)
         results = model.infer(frame)[<span class="hljs-number">0</span>]
         detections = sv.Detections.from_inference(results)
         sink.append(
-            detections, custom_data={<span class="hljs-string">&#x27;&lt;YOUR_LABEL&gt;&#x27;</span>:<span class="hljs-string">&#x27;&lt;YOUR_DATA&gt;&#x27;</span>})<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div> <div class="flex flex-col"><h2 class="text-xl font-inter"><span class="text-[#8622FF] text-xl ml-1 mb-1" data-svelte-h="svelte-6hn1qy">›</span> Save Detections to JSON</h2> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->frames_generator = sv.get_video_frames_generator(&lt;VIDEO_PATH&gt;)
+            detections, custom_data={<span class="hljs-string">&quot;&lt;YOUR_LABEL&gt;&quot;</span>:<span class="hljs-string">&quot;&lt;YOUR_DATA&gt;&quot;</span>})<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div> <div class="flex flex-col"><h2 class="text-xl font-inter"><span class="text-[#8622FF] text-xl ml-1 mb-1" data-svelte-h="svelte-6hn1qy">›</span> Save Detections to JSON</h2> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->frames_generator = sv.get_video_frames_generator(&lt;VIDEO_PATH&gt;)
 model = get_model(<span class="hljs-string">&quot;yolov8s-640&quot;</span>)
 
 json_sink = sv.JSONSink(<span class="hljs-string">&quot;out.json&quot;</span>)
@@ -246,7 +246,7 @@ json_sink = sv.JSONSink(<span class="hljs-string">&quot;out.json&quot;</span>)
         results = model.infer(frame)[<span class="hljs-number">0</span>]
         detections = sv.Detections.from_inference(results)
         sink.append(
-            detections, custom_data={<span class="hljs-string">&#x27;&lt;YOUR_LABEL&gt;&#x27;</span>:<span class="hljs-string">&#x27;&lt;YOUR_DATA&gt;&#x27;</span>})<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div></div></div>  <div class="border-slate-200 border-l shrink-0 w-1/2 overflow-hidden"><div slot="col2"><div class="flex flex-col"><h2 class="text-xl font-inter"><span class="text-[#8622FF] text-xl ml-1 mb-1" data-svelte-h="svelte-6hn1qy">›</span> Run a fine-tuned LMM</h2> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="bash" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->pip install peft -q<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">from</span> inference.models.paligemma.paligemma <span class="hljs-keyword">import</span> PaliGemma
+            detections, custom_data={<span class="hljs-string">&quot;&lt;YOUR_LABEL&gt;&quot;</span>:<span class="hljs-string">&quot;&lt;YOUR_DATA&gt;&quot;</span>})<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div></div></div>  <div class="border-slate-200 border-l shrink-0 w-1/2 overflow-hidden"><div slot="col2"><div class="flex flex-col"><h2 class="text-xl font-inter"><span class="text-[#8622FF] text-xl ml-1 mb-1" data-svelte-h="svelte-6hn1qy">›</span> Run a fine-tuned LMM</h2> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="bash" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->pip install peft -q<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">from</span> inference.models.paligemma.paligemma <span class="hljs-keyword">import</span> PaliGemma
 <span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image
 
 image = Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;dog.jpeg&quot;</span>)
@@ -259,7 +259,7 @@ detections = sv.Detections.from_lmm(
     sv.LMM.PALIGEMMA,
     results,
     resolution_wh=(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>),
-    classes=[<span class="hljs-string">&#x27;cat&#x27;</span>, <span class="hljs-string">&#x27;dog&#x27;</span>]
+    classes=[<span class="hljs-string">&quot;cat&quot;</span>, <span class="hljs-string">&quot;dog&quot;</span>]
 )
 <!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div> <div class="flex flex-col"><h2 class="text-xl font-inter"><span class="text-[#8622FF] text-xl ml-1 mb-1" data-svelte-h="svelte-6hn1qy">›</span> Compute Metrics</h2> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->dataset = sv.DetectionDataset.from_yolo(<span class="hljs-string">&quot;&lt;PATH_TO_DATASET&gt;&quot;</span>)
 
@@ -276,7 +276,8 @@ confusion_matrix = sv.ConfusionMatrix.benchmark(
 <span class="hljs-keyword">if</span> empty_detections.is_empty():
     <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Nothing was detected!&quot;</span>)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs px-2 opacity-90">Count detected objects</p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-built_in">len</span>(detections)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs px-2 opacity-90">Loop over detection results</p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">for</span> xyxy, mask, confidence, class_id, tracker_id, data <span class="hljs-keyword">in</span> detections:
     <span class="hljs-built_in">print</span>(xyxy, mask, confidence, class_id, tracker_id, data)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs px-2 opacity-90">Filter detections by class</p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->detections = sv.Detections.from_inference(results)
-detections = detections[detections.class_id == <span class="hljs-number">0</span>]<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs px-2 opacity-90">Merge multiple sv.Detections</p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->detections1 = sv.Detections.from_inference(results1)
+detections = detections[detections.class_id == <span class="hljs-number">0</span>]<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs px-2 opacity-90">Filter by class name</p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->detections = sv.Detections.from_inference(results)
+detections = detections[detections.data[<span class="hljs-string">&quot;class_name&quot;</span>] == <span class="hljs-string">&quot;cat&quot;</span>]<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs px-2 opacity-90">Merge multiple sv.Detections</p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->detections1 = sv.Detections.from_inference(results1)
 detections2 = sv.Detections.from_inference(results2)
 merged_detections = sv.Detections.merge([detections1, detections2])<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div> <div class="flex flex-col"><h2 class="text-xl font-inter"><span class="text-[#8622FF] text-xl ml-1 mb-1" data-svelte-h="svelte-6hn1qy">›</span> Video Assets</h2> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs px-2 opacity-90">supervision provides a handful of videos for testing</p> <div class="bg-slate-300 relative"> <pre data-language="bash" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->pip install <span class="hljs-string">&quot;supervision[assets]&quot;</span> -q<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">from</span> supervision.assets <span class="hljs-keyword">import</span> download_assets, VideoAssets
 
@@ -290,7 +291,7 @@ sv.plot_image(frame)<!-- HTML_TAG_END --></code></pre>  <button class="copy-butt
 			
 			<script>
 				{
-					__sveltekit_ub0y1o = {
+					__sveltekit_1finqft = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "/cheatsheet-supervision"
 					};
@@ -300,8 +301,8 @@ sv.plot_image(frame)<!-- HTML_TAG_END --></code></pre>  <button class="copy-butt
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.CWut4yNN.js"),
-						import("./_app/immutable/entry/app.k4GBffrW.js")
+						import("./_app/immutable/entry/start.EmKtaVkm.js"),
+						import("./_app/immutable/entry/app.p1jBdoSl.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
