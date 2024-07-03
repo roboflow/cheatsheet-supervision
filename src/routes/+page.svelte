@@ -11,8 +11,14 @@
     import codeModelsTransformers from "$lib/code/modelsTransformers"
     import codeModelsInferenceSeg from "$lib/code/modelsInferenceSeg"
     import codeModelsUltralyticsSeg from "$lib/code/modelsUltralyticsSeg"
-
 </script>
+
+<svelte:head>
+	<title>Cheatsheet • Supervision</title>
+    <meta name="description" content="A cheatsheet for Roboflow Supervision, covering commonly used functions and features: model loading, annotation, object detection, segmentation, and keypoint detection.">
+	<meta name="keywords" content="Roboflow, Supervision, computer vision, cheatsheet, SvelteKit, annotation, detection, segmentation, keypoints">
+    <meta name="author" content="Linas Kondrackis">
+</svelte:head>
 
 <div class="justify-center w-full flex flex-col items-center gap-12 pb-36">
     <br/>
