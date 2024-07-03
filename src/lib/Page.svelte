@@ -4,22 +4,22 @@
 
 
 <!-- <div class={`w-[1123px] h-[794px] flex flex-col bg-white page-root overflow-hidden`}> -->
-<div class={`w-[1123px] pb-2 flex flex-col bg-white page-root overflow-hidden`}>
+<div class={`w-[562px] xl:w-[1124px] pb-2 flex flex-col bg-white page-root overflow-hidden`}>
     <!-- Header -->
     <div class="bg-[#8622FF] text-white p-2 text-2xl font-inter font-bold">
         <h1>{header}</h1>
     </div>
 
     <!-- Columns -->
-    <div class="flex-grow flex flex-row justify-evenly">
+    <div class="flex-grow flex flex-col xl:flex-row justify-evenly">
 
         <!-- Col 1 -->
-        <div class="shrink-0 w-1/2 overflow-hidden">
+        <div class="shrink-0 xl:w-1/2 overflow-hidden">
             <slot name="col1"/>
         </div>
 
         <!-- Col 2 -->
-        <div class="border-slate-200 border-l shrink-0 w-1/2 overflow-hidden">
+        <div class="border-slate-200 border-l shrink-0 xl:w-1/2 overflow-hidden">
             <slot name="col2"/>
         </div>
     </div>

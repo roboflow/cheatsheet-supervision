@@ -20,8 +20,7 @@
         <div slot="col1">
             <!-- Describes what supervision is, and the typical process -->
             <Section header="Basic Principles">
-                <div class="text-sm px-2 pb-2">
-
+                <div class="text-xs xl:text-sm px-2 pb-2">
                     <p>
                         Supervision simplifies the process of working with vision models. It offers connectors to popular model libraries, a plethora of visualizers (annotators), powerful post-processing features and an easy learning curve.
                     </p>
@@ -439,7 +438,7 @@ resulting_image = sv.overlay_image(
 
             <Section header="for Google Colab">
                 <CodeBlock preface={"Install custom branch of supervision"} isBash code={`\
-pip install git+https://github.com/YourName/supervision.git@your-branch -q`} />
+pip install git+https://github.com/YourName/supervision.git@your-branch`} />
                 <CodeBlock preface={"Display image in Colab by converting to PIL"} isBash code={`\
 sv.cv2_to_pillow(frame)`} />
                 <CodeBlock preface={"Display image in Colab by plotting with matplotlib"} isBash code={`\
