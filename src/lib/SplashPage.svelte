@@ -1,5 +1,5 @@
 <script>
-    import { base } from '$app/paths';
+    import { base } from "$app/paths";
 </script>
 
 <!-- <div class={`w-[1123px] h-[794px] flex flex-col bg-white .page-root`}> -->

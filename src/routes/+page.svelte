@@ -160,7 +160,7 @@ key_points = sv.KeyPoints.from_inference(results)
                 <CodeBlock code={`\
 from ultralytics import YOLO
 
-model = YOLO('yolov8s-pose.pt')
+model = YOLO("yolov8s-pose.pt")
 
 results = model(image)[0]
 key_points = sv.KeyPoints.from_ultralytics(results)`} />
@@ -325,7 +325,7 @@ with csv_sink as sink:
         results = model.infer(frame)[0]
         detections = sv.Detections.from_inference(results)
         sink.append(
-            detections, custom_data={'<YOUR_LABEL>':'<YOUR_DATA>'})`
+            detections, custom_data={"<YOUR_LABEL>":"<YOUR_DATA>"})`
 } />
 </Section>
 
@@ -341,7 +341,7 @@ with json_sink as sink:
         results = model.infer(frame)[0]
         detections = sv.Detections.from_inference(results)
         sink.append(
-            detections, custom_data={'<YOUR_LABEL>':'<YOUR_DATA>'})`
+            detections, custom_data={"<YOUR_LABEL>":"<YOUR_DATA>"})`
 } />
 </Section>
         </div>
@@ -362,7 +362,7 @@ detections = sv.Detections.from_lmm(
     sv.LMM.PALIGEMMA,
     results,
     resolution_wh=(1000, 1000),
-    classes=['cat', 'dog']
+    classes=["cat", "dog"]
 )
 `}
                 />
@@ -402,6 +402,9 @@ for xyxy, mask, confidence, class_id, tracker_id, data in detections:
                 <CodeBlock preface={"Filter detections by class"} code={`\
 detections = sv.Detections.from_inference(results)
 detections = detections[detections.class_id == 0]`} />
+                <CodeBlock preface={"Filter by class name"} code={`\
+detections = sv.Detections.from_inference(results)
+detections = detections[detections.data["class_name"] == "cat"]`} />
                 <CodeBlock preface={"Merge multiple sv.Detections"} code={`\
 detections1 = sv.Detections.from_inference(results1)
 detections2 = sv.Detections.from_inference(results2)
