@@ -15,7 +15,7 @@
                 <a href="https://www.linkedin.com/in/linas-kondrackis/" class="underline text-[#8315F9]" target="_blank">Linas Kondrackis</a>
                 &nbsp;
                 Contributors:
-                <a href="https://www.linkedin.com/in/bhavay2001/" class="underline text-[#8315F9]" target="_blank">Bhavay Malhota</a>
+                <a href="https://www.linkedin.com/in/bhavay2001/" class="underline text-[#8315F9]" target="_blank">Bhavay Malhotra</a>
                 &nbsp;&nbsp;
             </span>
             <span>
