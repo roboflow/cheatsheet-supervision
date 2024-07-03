@@ -8,16 +8,16 @@
 		<link href="./_app/immutable/assets/0.CGODPZEc.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/SvelteToast.DbLvtVfH.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/2.C01kduzH.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.BpLIWFyd.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/entry.BNkTBnNC.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.r_sMB0IT.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.BxhAXNRS.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.CR9fYKd2.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.Br0CiCGi.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/paths.C0AXfUhi.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.CjpXuTsI.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/paths.7d1zDRvM.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.B1hFYl-i.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.CM4teq7i.js">
 		<link rel="modulepreload" href="./_app/immutable/nodes/0.DiXQfZC2.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/SvelteToast.svelte_svelte_type_style_lang.khwlsV__.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.CBGcVosn.js"><title>Cheatsheet • Supervision</title><!-- HEAD_svelte-vpac0q_START --><meta name="description" content="A cheatsheet for Roboflow Supervision, covering commonly used functions and features: model loading, annotation, object detection, segmentation, and keypoint detection."><meta name="keywords" content="Roboflow, Supervision, computer vision, cheatsheet, SvelteKit, annotation, detection, segmentation, keypoints"><meta name="author" content="Linas Kondrackis"><!-- HEAD_svelte-vpac0q_END -->
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.DartYe9u.js"><title>Cheatsheet • Supervision</title><!-- HEAD_svelte-vpac0q_START --><meta name="description" content="A cheatsheet for Roboflow Supervision, covering commonly used functions and features: model loading, annotation, object detection, segmentation, and keypoint detection."><meta name="keywords" content="Roboflow, Supervision, computer vision, cheatsheet, SvelteKit, annotation, detection, segmentation, keypoints"><meta name="author" content="Linas Kondrackis"><!-- HEAD_svelte-vpac0q_END -->
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,8 +42,7 @@ detections = sv.Detections.from_inference(results)<!-- HTML_TAG_END --></code></
 annotated_image = sv.LabelAnnotator().annotate(
     scene=annotated_image, detections=detections
 )
-sv.plot_image(annotated_image)
-<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div></div></div>  <div class="border-slate-200 border-l shrink-0 xl:w-1/2 overflow-hidden"><div slot="col2"> <div class="flex flex-col"><h2 class="text-base sm:text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> Core Concepts</h2> <ul class="list-disc list-inside ml-2 svelte-1db985q" data-svelte-h="svelte-1lcxblo"><li><strong>sv.Detections</strong>: Common class for model both object detection and segmentation.
+sv.plot_image(annotated_image)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div></div></div>  <div class="border-slate-200 border-l shrink-0 xl:w-1/2 overflow-hidden"><div slot="col2"> <div class="flex flex-col"><h2 class="text-base sm:text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> Core Concepts</h2> <ul class="list-disc list-inside ml-2 svelte-1db985q" data-svelte-h="svelte-1lcxblo"><li><strong>sv.Detections</strong>: Common class for model both object detection and segmentation.
                         Contains fields: <strong>xyxy</strong>, <strong>mask</strong>, <strong>class_id</strong>, <strong>tracker_id</strong>, <strong>data</strong>.
                     </li><li><strong>import supervision as sv</strong>: All useful functions available in global scope</li> <li><strong>A selection of models</strong>:
                         Load <a href="https://inference.roboflow.com/quickstart/aliases/" class="underline text-[#8315F9]" target="_blank">popular</a>,
@@ -121,8 +120,7 @@ image = cv2.imread(<span class="hljs-string">&quot;dog.jpeg&quot;</span>)<!-- HT
 model = get_model(model_id=<span class="hljs-string">&quot;yolov8s-pose-640&quot;</span>)
 
 results = model.infer(image)[<span class="hljs-number">0</span>]
-key_points = sv.KeyPoints.from_inference(results)
-<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div> <div class="flex flex-col"><h2 class="text-base sm:text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> Ultralytics</h2> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-[0.5rem] sm:text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">from</span> ultralytics <span class="hljs-keyword">import</span> YOLO
+key_points = sv.KeyPoints.from_inference(results)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div> <div class="flex flex-col"><h2 class="text-base sm:text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> Ultralytics</h2> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-[0.5rem] sm:text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">from</span> ultralytics <span class="hljs-keyword">import</span> YOLO
 
 model = YOLO(<span class="hljs-string">&quot;yolov8s-pose.pt&quot;</span>)
 
@@ -164,12 +162,9 @@ annotated_frame = edge_annotator.annotate(
 )
 annotated_frame = vertex_annotator.annotate(
     scene=annotated_frame,
-    key_points=key_points
-)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="flex flex-row justify-center text-lg font-bold" data-svelte-h="svelte-9ymj2a"><a href="https://supervision.roboflow.com/develop/detection/annotators/" target="_blank" class="underline text-blue-500">+1 more annotator</a> 🎨</div></div></div></div></div> </div>  <div class="w-11/12 sm:w-[562px] xl:w-[1124px] pb-2 flex flex-col bg-white page-root overflow-hidden svelte-khlbev"> <div class="bg-[#8622FF] text-white p-2 text-xl sm:text-2xl font-inter font-bold"><h1>What can supervision do?</h1></div>  <div class="flex-grow flex flex-col xl:flex-row justify-evenly"> <div class="shrink-0 xl:w-1/2 overflow-hidden"><div slot="col1"><div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-[0.5rem] sm:text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">import</span> cv2
+    key_points=key_points)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="flex flex-row justify-center text-lg font-bold" data-svelte-h="svelte-9ymj2a"><a href="https://supervision.roboflow.com/develop/detection/annotators/" target="_blank" class="underline text-blue-500">+1 more annotator</a> 🎨</div></div></div></div></div> </div>  <div class="w-11/12 sm:w-[562px] xl:w-[1124px] pb-2 flex flex-col bg-white page-root overflow-hidden svelte-khlbev"> <div class="bg-[#8622FF] text-white p-2 text-xl sm:text-2xl font-inter font-bold"><h1>What can supervision do?</h1></div>  <div class="flex-grow flex flex-col xl:flex-row justify-evenly"> <div class="shrink-0 xl:w-1/2 overflow-hidden"><div slot="col1"><div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-[0.5rem] sm:text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">import</span> cv2
 <span class="hljs-keyword">import</span> supervision <span class="hljs-keyword">as</span> sv
-<span class="hljs-keyword">from</span> inference <span class="hljs-keyword">import</span> get_model
-
-<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="flex flex-col"><h2 class="text-base sm:text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> Track Object Movement</h2> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-[0.5rem] sm:text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->video_info = sv.VideoInfo.from_video_path(video_path=&lt;VIDEO_PATH&gt;)
+<span class="hljs-keyword">from</span> inference <span class="hljs-keyword">import</span> get_model<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="flex flex-col"><h2 class="text-base sm:text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> Track Object Movement</h2> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-[0.5rem] sm:text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->video_info = sv.VideoInfo.from_video_path(video_path=&lt;VIDEO_PATH&gt;)
 frames_generator = sv.get_video_frames_generator(source_path=&lt;VIDEO_PATH&gt;)
 
 model = get_model(<span class="hljs-string">&quot;yolov8s-640&quot;</span>)
@@ -260,8 +255,7 @@ detections = sv.Detections.from_lmm(
     results,
     resolution_wh=(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>),
     classes=[<span class="hljs-string">&quot;cat&quot;</span>, <span class="hljs-string">&quot;dog&quot;</span>]
-)
-<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div> <div class="flex flex-col"><h2 class="text-base sm:text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> Compute Metrics</h2> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-[0.5rem] sm:text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->dataset = sv.DetectionDataset.from_yolo(<span class="hljs-string">&quot;&lt;PATH_TO_DATASET&gt;&quot;</span>)
+)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div> <div class="flex flex-col"><h2 class="text-base sm:text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> Compute Metrics</h2> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-[0.5rem] sm:text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->dataset = sv.DetectionDataset.from_yolo(<span class="hljs-string">&quot;&lt;PATH_TO_DATASET&gt;&quot;</span>)
 
 model = get_model(<span class="hljs-string">&quot;yolov8s-640&quot;</span>)
 <span class="hljs-keyword">def</span> <span class="hljs-title function_">callback</span>(<span class="hljs-params">image: np.ndarray</span>) -&gt; sv.Detections:
@@ -271,8 +265,7 @@ model = get_model(<span class="hljs-string">&quot;yolov8s-640&quot;</span>)
 confusion_matrix = sv.ConfusionMatrix.benchmark(
     dataset=dataset, callback=callback
 )
-<span class="hljs-built_in">print</span>(confusion_matrix.matrix)
-                <!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div></div></div></div> </div>  <div class="w-11/12 sm:w-[562px] xl:w-[1124px] pb-2 flex flex-col bg-white page-root overflow-hidden svelte-khlbev"> <div class="bg-[#8622FF] text-white p-2 text-xl sm:text-2xl font-inter font-bold"><h1>Utilities</h1></div>  <div class="flex-grow flex flex-col xl:flex-row justify-evenly"> <div class="shrink-0 xl:w-1/2 overflow-hidden"><div slot="col1"><div class="flex flex-col"><h2 class="text-base sm:text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> sv.Detections Operations</h2> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs px-2 opacity-90">Empty detections. Returned by every model when nothing is detected.</p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-[0.5rem] sm:text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->empty_detections = sv.Detections.empty()
+<span class="hljs-built_in">print</span>(confusion_matrix.matrix)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div></div></div></div> </div>  <div class="w-11/12 sm:w-[562px] xl:w-[1124px] pb-2 flex flex-col bg-white page-root overflow-hidden svelte-khlbev"> <div class="bg-[#8622FF] text-white p-2 text-xl sm:text-2xl font-inter font-bold"><h1>Utilities</h1></div>  <div class="flex-grow flex flex-col xl:flex-row justify-evenly"> <div class="shrink-0 xl:w-1/2 overflow-hidden"><div slot="col1"><div class="flex flex-col"><h2 class="text-base sm:text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> sv.Detections Operations</h2> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs px-2 opacity-90">Empty detections. Returned by every model when nothing is detected.</p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-[0.5rem] sm:text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->empty_detections = sv.Detections.empty()
 <span class="hljs-keyword">if</span> empty_detections.is_empty():
     <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Nothing was detected!&quot;</span>)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs px-2 opacity-90">Count detected objects</p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-[0.5rem] sm:text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-built_in">len</span>(detections)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs px-2 opacity-90">Loop over detection results</p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-[0.5rem] sm:text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">for</span> xyxy, mask, confidence, class_id, tracker_id, data <span class="hljs-keyword">in</span> detections:
     <span class="hljs-built_in">print</span>(xyxy, mask, confidence, class_id, tracker_id, data)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-klct9p" data-svelte-h="svelte-hm96ti"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs px-2 opacity-90">Filter detections by class</p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-[0.5rem] sm:text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->detections = sv.Detections.from_inference(results)
@@ -291,7 +284,7 @@ sv.plot_image(frame)<!-- HTML_TAG_END --></code></pre>  <button class="copy-butt
 			
 			<script>
 				{
-					__sveltekit_13933zy = {
+					__sveltekit_vibec = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "/cheatsheet-supervision"
 					};
@@ -301,8 +294,8 @@ sv.plot_image(frame)<!-- HTML_TAG_END --></code></pre>  <button class="copy-butt
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.BpLIWFyd.js"),
-						import("./_app/immutable/entry/app.CjpXuTsI.js")
+						import("./_app/immutable/entry/start.r_sMB0IT.js"),
+						import("./_app/immutable/entry/app.B1hFYl-i.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
