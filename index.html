@@ -8,16 +8,16 @@
 		<link href="./_app/immutable/assets/0.DfyLXXRR.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/SvelteToast.DbLvtVfH.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/2.DEwXrmHr.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.BrmlVaxe.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/entry.ClZZSZZn.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.DVWeqw6R.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.oF-uKr0e.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.CR9fYKd2.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.Br0CiCGi.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/paths.Cxe6Gh2E.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.Blmv7S2b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/paths.Cw8C0YB3.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.pbv2YX8K.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.CM4teq7i.js">
 		<link rel="modulepreload" href="./_app/immutable/nodes/0.uUKy5FYS.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/SvelteToast.svelte_svelte_type_style_lang.khwlsV__.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.BHxfZFlb.js"><title>Cheatsheet • Supervision</title><!-- HEAD_svelte-kd8jbd_START --><meta name="description" content="A cheatsheet for Roboflow Supervision, covering commonly used functions and features: model loading, annotation, object detection, segmentation, and keypoint detection."><meta name="keywords" content="Roboflow, Supervision, computer vision, cheatsheet, SvelteKit, annotation, detection, segmentation, keypoints"><meta name="author" content="Linas Kondrackis"><!-- HEAD_svelte-kd8jbd_END -->
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.r8PhugpK.js"><title>Cheatsheet • Supervision</title><!-- HEAD_svelte-kd8jbd_START --><meta name="description" content="A cheatsheet for Roboflow Supervision, covering commonly used functions and features: model loading, annotation, object detection, segmentation, and keypoint detection."><meta name="keywords" content="Roboflow, Supervision, computer vision, cheatsheet, SvelteKit, annotation, detection, segmentation, keypoints"><meta name="author" content="Linas Kondrackis"><!-- HEAD_svelte-kd8jbd_END -->
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +42,7 @@ detections = sv.Detections.from_inference(results)<!-- HTML_TAG_END --></code></
 annotated_image = sv.LabelAnnotator().annotate(
     scene=annotated_image, detections=detections
 )
-sv.plot_image(annotated_image)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div></div></div>  <div class="border-slate-200 lg:border-l lg:w-1/2 flex flex-col gap-4"><div slot="col2"> <div class="flex flex-col gap-4"><h2 class="text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> Core Concepts</h2> <ul class="list-disc list-inside ml-2 flex flex-col gap-1 svelte-1ig1h5d" data-svelte-h="svelte-1i5lkxr"><li><strong>sv.Detections</strong>: Common class for model both object detection and
+sv.plot_image(annotated_image)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div></div></div>  <div class="border-slate-200 lg:border-l lg:w-1/2 flex flex-col gap-4"><div slot="col2"> <div class="flex flex-col gap-4"><h2 class="text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> Core Concepts</h2> <ul class="list-disc list-inside ml-2 flex flex-col gap-1 svelte-1ig1h5d" data-svelte-h="svelte-f6nupx"><li><strong>sv.Detections</strong>: Common class for model both object detection and
             segmentation. Contains fields: <strong>xyxy</strong>, <strong>mask</strong>,
             <strong>class_id</strong>, <strong>tracker_id</strong>, <strong>data</strong>.</li> <li><strong>import supervision as sv</strong>: All useful functions available in global
             scope</li> <li><strong>A selection of models</strong>: Load
@@ -50,7 +50,7 @@ sv.plot_image(annotated_image)<!-- HTML_TAG_END --></code></pre>  <button class=
             <a href="https://inference.roboflow.com/quickstart/explore_models/" class="underline text-[#8315F9]" target="_blank">fine-tuned</a>, or
             <a href="https://inference.roboflow.com/quickstart/load_from_universe/" class="underline text-[#8315F9]" target="_blank">Universe</a> models.</li> <li><strong>sv.Detections.from_X</strong>: Load from one of
             <a href="https://supervision.roboflow.com/latest/detection/core/" class="underline text-[#8315F9]" target="_blank">12 sources.</a></li> <li><strong>Annotators</strong>: Draw the detections with one of
-            <a href="https://supervision.roboflow.com/develop/detection/annotators/" class="underline text-[#8315F9]" target="_blank">20 annotators.</a></li> <li><strong>More features</strong>: This sheet contains &lt; 50% of supervision&#39;s features.
+            <a href="https://supervision.roboflow.com/latest/detection/annotators/" class="underline text-[#8315F9]" target="_blank">20 annotators.</a></li> <li><strong>More features</strong>: This sheet contains &lt; 50% of supervision&#39;s features.
             Find others
             <a href="https://supervision.roboflow.com/latest/" class="underline text-[#8315F9]" target="_blank">here!</a></li></ul></div> <div class="mt-4"></div> <div class="flex flex-col gap-4"><h2 class="text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> Read images &amp; Videos</h2> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs opacity-90 p-2">Load a single image</p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">import</span> cv2
 image = cv2.imread(<span class="hljs-string">&quot;dog.jpeg&quot;</span>)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs opacity-90 p-2">Iterate over video frames</p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">for</span> frame <span class="hljs-keyword">in</span> sv.get_video_frames_generator(source_path=&lt;VIDEO_PATH&gt;):
@@ -101,7 +101,7 @@ annotated_image = bounding_box_annotator.annotate(
 annotated_image = label_annotator.annotate(
     scene=annotated_image, detections=detections)
 
-sv.plot_image(annotated_image)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="flex flex-row justify-center text-lg font-bold" data-svelte-h="svelte-1izenxd"><a href="https://supervision.roboflow.com/develop/detection/annotators/" target="_blank" class="underline text-blue-500">+18 more annotators</a> 🎨</div></div> <div class="flex flex-col gap-4"><h2 class="text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> Segmentation</h2> <div class="flex flex-row justify-center text-sm font-bold" data-svelte-h="svelte-j6dhss"><span>For <code class="svelte-1ig1h5d">inference</code> and <code class="svelte-1ig1h5d">ultralytics</code>, you only need to change the
+sv.plot_image(annotated_image)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="flex flex-row justify-center text-lg font-bold" data-svelte-h="svelte-1ivpez5"><a href="https://supervision.roboflow.com/latest/detection/annotators/" target="_blank" class="underline text-blue-500">+18 more annotators</a> 🎨</div></div> <div class="flex flex-col gap-4"><h2 class="text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> Segmentation</h2> <div class="flex flex-row justify-center text-sm font-bold" data-svelte-h="svelte-j6dhss"><span>For <code class="svelte-1ig1h5d">inference</code> and <code class="svelte-1ig1h5d">ultralytics</code>, you only need to change the
             model ID:</span></div> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">from</span> inference <span class="hljs-keyword">import</span> get_model
 
 model = get_model(model_id=<span class="hljs-string">&quot;yolov8n-seg-640&quot;</span>)
@@ -168,7 +168,7 @@ annotated_frame = edge_annotator.annotate(
 )
 annotated_frame = vertex_annotator.annotate(
     scene=annotated_frame,
-    key_points=key_points)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="flex flex-row justify-center text-lg font-bold" data-svelte-h="svelte-1rqxn7c"><a href="https://supervision.roboflow.com/develop/detection/annotators/" target="_blank" class="underline text-blue-500">+1 more annotator</a> 🎨</div></div></div></div></div> </div>  <div class="w-full max-w-[1123px] pb-2 flex flex-col bg-white page-root overflow-hidden rounded-lg svelte-1ngqj27"> <div class="bg-[#8622FF] text-white text-2xl font-inter font-bold p-6"><h1>What can supervision do?</h1></div>  <div class="flex-grow flex flex-col lg:flex-row lg:justify-evenly"> <div class="lg:w-1/2 overflow-hidden"><div slot="col1" class="p-6 flex flex-col gap-4"><div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">import</span> cv2
+    key_points=key_points)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="flex flex-row justify-center text-lg font-bold" data-svelte-h="svelte-16kgnm"><a href="https://supervision.roboflow.com/latest/detection/annotators/" target="_blank" class="underline text-blue-500">+1 more annotator</a> 🎨</div></div></div></div></div> </div>  <div class="w-full max-w-[1123px] pb-2 flex flex-col bg-white page-root overflow-hidden rounded-lg svelte-1ngqj27"> <div class="bg-[#8622FF] text-white text-2xl font-inter font-bold p-6"><h1>What can supervision do?</h1></div>  <div class="flex-grow flex flex-col lg:flex-row lg:justify-evenly"> <div class="lg:w-1/2 overflow-hidden"><div slot="col1" class="p-6 flex flex-col gap-4"><div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">import</span> cv2
 <span class="hljs-keyword">import</span> supervision <span class="hljs-keyword">as</span> sv
 <span class="hljs-keyword">from</span> inference <span class="hljs-keyword">import</span> get_model<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="flex flex-col gap-4"><h2 class="text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> Track Object Movement</h2> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->video_info = sv.VideoInfo.from_video_path(video_path=&lt;VIDEO_PATH&gt;)
 frames_generator = sv.get_video_frames_generator(source_path=&lt;VIDEO_PATH&gt;)
@@ -286,12 +286,12 @@ download_assets(VideoAssets.VEHICLES)
     image=image, resolution_wh=(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>))<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs opacity-90 p-2">Overlay image</p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->overlay = np.zeros((<span class="hljs-number">400</span>, <span class="hljs-number">400</span>, <span class="hljs-number">3</span>), dtype=np.uint8)
 resulting_image = sv.overlay_image(
     image=image, overlay=overlay, anchor=(<span class="hljs-number">200</span>, <span class="hljs-number">400</span>)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div> <div class="flex flex-col gap-4"><h2 class="text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> for Google Colab</h2> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs opacity-90 p-2">Install custom branch of supervision</p> <div class="bg-slate-300 relative"> <pre data-language="bash" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->pip install git+https://github.com/YourName/supervision.git@your-branch<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs opacity-90 p-2">Display image in Colab by converting to PIL</p> <div class="bg-slate-300 relative"> <pre data-language="bash" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->sv.cv2_to_pillow(frame)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs opacity-90 p-2">Display image in Colab by plotting with matplotlib</p> <div class="bg-slate-300 relative"> <pre data-language="bash" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->%matplotlib inline
-sv.plot_image(frame)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div></div></div></div> </div></div> <footer class="w-full max-w-[1123px] mx-auto text-xs py-2 text-gray-400" data-svelte-h="svelte-3cxz3a">© 2024 2024 Roboflow, Inc. All rights reserved.
+sv.plot_image(frame)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div></div></div></div> </div></div> <footer class="w-full max-w-[1123px] mx-auto text-xs py-2 text-gray-400" data-svelte-h="svelte-1s6vobk">© 2024 Roboflow, Inc. All rights reserved.
 </footer></div> <ul class="_toastContainer svelte-1u812xz"> </ul> 
 			
 			<script>
 				{
-					__sveltekit_5459tq = {
+					__sveltekit_1e0lgz = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "/cheatsheet-supervision"
 					};
@@ -301,8 +301,8 @@ sv.plot_image(frame)<!-- HTML_TAG_END --></code></pre>  <button class="copy-butt
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.BrmlVaxe.js"),
-						import("./_app/immutable/entry/app.Blmv7S2b.js")
+						import("./_app/immutable/entry/start.DVWeqw6R.js"),
+						import("./_app/immutable/entry/app.pbv2YX8K.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
