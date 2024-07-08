@@ -336,7 +336,6 @@ key_points = sv.KeyPoints.from_yolo_nas(results)`}
         code={`
 import mediapipe as mp
 
-image = cv2.imread("dog.jpeg")
 image_height, image_width, _ = image.shape
 mediapipe_image = mp.Image(
     image_format=mp.ImageFormat.SRGB,
@@ -522,6 +521,7 @@ with json_sink as sink:
           code={`
 from inference.models.paligemma.paligemma import PaliGemma
 from PIL import Image
+import supervision as sv
 
 image = Image.open("dog.jpeg")
 prompt = "Detect the dog."
