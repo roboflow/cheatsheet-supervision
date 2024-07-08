@@ -5,14 +5,26 @@
   import "svelte-highlight/styles/github.css";
   import { toast } from "@zerodevx/svelte-toast";
   import { base } from "$app/paths";
+  import { browser } from "$app/environment";
 
+  export let buttonId: string;
   export let code: string;
   export let preface: string = "";
   export let bash: boolean = false;
 
+  function sendEventButtonClicked() {
+    if (!browser) {
+      return;
+    }
+    (window as any).gtag("event", "click", {
+      event_label: buttonId
+    });
+  }
+
   const language = bash ? bashLang : python;
 
   function onClickCopy() {
+    sendEventButtonClicked();
     navigator.clipboard.writeText(code);
     toast.push("📋 Copied to clipboard!", {
       theme: {
