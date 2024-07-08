@@ -8,16 +8,16 @@
 		<link href="./_app/immutable/assets/0.DfyLXXRR.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/SvelteToast.DbLvtVfH.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/2.DEwXrmHr.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.Cdrwoc4A.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/entry.DOHjZwI3.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.HivP7Bfm.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.zH70tUKs.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.CR9fYKd2.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.Br0CiCGi.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/paths.DenQBWwf.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.DiW32K6i.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/paths.DHKgoVFP.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.BAuXpI1g.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.CM4teq7i.js">
 		<link rel="modulepreload" href="./_app/immutable/nodes/0.uUKy5FYS.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/SvelteToast.svelte_svelte_type_style_lang.khwlsV__.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.BGwONRAc.js"><title>Cheatsheet • Supervision</title><!-- HEAD_svelte-kd8jbd_START --><meta name="description" content="A cheatsheet for Roboflow Supervision, covering commonly used functions and features: model loading, annotation, object detection, segmentation, and keypoint detection."><meta name="keywords" content="Roboflow, Supervision, computer vision, cheatsheet, SvelteKit, annotation, detection, segmentation, keypoints"><meta name="author" content="Linas Kondrackis"><!-- HEAD_svelte-kd8jbd_END -->
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.DL6vvSi1.js"><title>Cheatsheet • Supervision</title><!-- HEAD_svelte-kd8jbd_START --><meta name="description" content="A cheatsheet for Roboflow Supervision, covering commonly used functions and features: model loading, annotation, object detection, segmentation, and keypoint detection."><meta name="keywords" content="Roboflow, Supervision, computer vision, cheatsheet, SvelteKit, annotation, detection, segmentation, keypoints"><meta name="author" content="Linas Kondrackis"><!-- HEAD_svelte-kd8jbd_END -->
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -141,7 +141,6 @@ model = super_gradients.training.models.get(
 results = model.predict(image, conf=<span class="hljs-number">0.1</span>)
 key_points = sv.KeyPoints.from_yolo_nas(results)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div></div></div>  <div class="border-slate-200 lg:border-l lg:w-1/2 overflow-hidden"><div slot="col2" class="p-6 flex flex-col gap-4"><div class="bg-[#f2e5ff] mb-2"><p class="text-xs opacity-90 p-2">⚠️ Available in pre-release: pip install git+https://github.com/roboflow/supervision.git@develop </p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">import</span> mediapipe <span class="hljs-keyword">as</span> mp
 
-image = cv2.imread(<span class="hljs-string">&quot;dog.jpeg&quot;</span>)
 image_height, image_width, _ = image.shape
 mediapipe_image = mp.Image(
     image_format=mp.ImageFormat.SRGB,
@@ -249,6 +248,7 @@ json_sink = sv.JSONSink(<span class="hljs-string">&quot;out.json&quot;</span>)
         sink.append(
             detections, custom_data={<span class="hljs-string">&quot;&lt;YOUR_LABEL&gt;&quot;</span>:<span class="hljs-string">&quot;&lt;YOUR_DATA&gt;&quot;</span>})<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div></div></div>  <div class="border-slate-200 lg:border-l lg:w-1/2 overflow-hidden"><div slot="col2" class="p-6 flex flex-col gap-4"><div class="flex flex-col gap-4"><h2 class="text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> Run a fine-tuned LMM</h2> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="bash" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->pip install peft -q<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START --><span class="hljs-keyword">from</span> inference.models.paligemma.paligemma <span class="hljs-keyword">import</span> PaliGemma
 <span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image
+<span class="hljs-keyword">import</span> supervision <span class="hljs-keyword">as</span> sv
 
 image = Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;dog.jpeg&quot;</span>)
 prompt = <span class="hljs-string">&quot;Detect the dog.&quot;</span>
@@ -291,7 +291,7 @@ sv.plot_image(frame)<!-- HTML_TAG_END --></code></pre>  <button class="copy-butt
 			
 			<script>
 				{
-					__sveltekit_1qpwrml = {
+					__sveltekit_5jz6q9 = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "/cheatsheet-supervision"
 					};
@@ -301,8 +301,8 @@ sv.plot_image(frame)<!-- HTML_TAG_END --></code></pre>  <button class="copy-butt
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.Cdrwoc4A.js"),
-						import("./_app/immutable/entry/app.DiW32K6i.js")
+						import("./_app/immutable/entry/start.HivP7Bfm.js"),
+						import("./_app/immutable/entry/app.BAuXpI1g.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
