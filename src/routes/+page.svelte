@@ -665,8 +665,8 @@ sv.cv2_to_pillow(frame)`}
     </div>
   </Page>
 </div>
-<footer class="w-full max-w-[1123px] mx-auto text-xs py-2 text-gray-400">
-  &copy; 2024 Roboflow, Inc. All rights reserved.
+<footer class="w-full px-6 text-xs py-2 text-gray-400">
+  <div class="lg:max-w-[1123px] mx-auto">&copy; 2024 Roboflow, Inc. All rights reserved.</div>
 </footer>
 
 <style>
