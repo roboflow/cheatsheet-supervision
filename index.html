@@ -1,30 +1,41 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="./favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
-		<link href="./_app/immutable/assets/0.DfyLXXRR.css" rel="stylesheet">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="./favicon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+		<link href="./_app/immutable/assets/0.BdNJbROc.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/SvelteToast.DbLvtVfH.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/2.DEwXrmHr.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.HivP7Bfm.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/entry.zH70tUKs.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.X6NH0ZeO.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.HrvSNA3d.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.CR9fYKd2.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.Br0CiCGi.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/paths.DHKgoVFP.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.BAuXpI1g.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/paths.DGiKIuM6.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.D8au6yl9.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.CM4teq7i.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.uUKy5FYS.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.Cb8fzsh_.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/SvelteToast.svelte_svelte_type_style_lang.khwlsV__.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.DL6vvSi1.js"><title>Cheatsheet • Supervision</title><!-- HEAD_svelte-kd8jbd_START --><meta name="description" content="A cheatsheet for Roboflow Supervision, covering commonly used functions and features: model loading, annotation, object detection, segmentation, and keypoint detection."><meta name="keywords" content="Roboflow, Supervision, computer vision, cheatsheet, SvelteKit, annotation, detection, segmentation, keypoints"><meta name="author" content="Linas Kondrackis"><!-- HEAD_svelte-kd8jbd_END -->
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.CnZ03fpW.js"><title>Cheatsheet • Supervision</title><!-- HEAD_svelte-kd8jbd_START --><meta name="description" content="A cheatsheet for Roboflow Supervision, covering commonly used functions and features: model loading, annotation, object detection, segmentation, and keypoint detection."><meta name="keywords" content="Roboflow, Supervision, computer vision, cheatsheet, SvelteKit, annotation, detection, segmentation, keypoints"><meta name="author" content="Linas Kondrackis"><!-- HEAD_svelte-kd8jbd_END -->
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">  <div class="svelte-17v9iqe"> <div class="justify-center w-full flex flex-col items-center gap-12 pb-4 px-6"><br> <div class="w-full max-w-[1123px] pb-2 flex flex-col bg-white page-root overflow-hidden rounded-lg svelte-1ngqj27"> <div class="h-1/2 flex justify-center flex-col items-center mb-2 py-1 px-6" data-svelte-h="svelte-h3jydf"><a href="https://supervision.roboflow.com/latest/" target="_blank" class="flex justify-center"><img src="./rf-supervision-cheatsheet-banner.png" alt="banner"></a> <div class="flex flex-col lg:flex-row text-sm justify-between w-full mt-2 gap-1"><span>Author:
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-K09WDGTGN2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-K09WDGTGN2');
+	</script>
+</head>
+
+<body data-sveltekit-preload-data="hover">
+	<div style="display: contents">  <div class="svelte-17v9iqe"> <div class="justify-center w-full flex flex-col items-center gap-12 pb-4 px-6"><br> <div class="w-full max-w-[1123px] pb-2 flex flex-col bg-white page-root overflow-hidden rounded-lg svelte-1ngqj27"> <div class="h-1/2 flex justify-center flex-col items-center mb-2 py-1 px-6" data-svelte-h="svelte-h3jydf"><a href="https://supervision.roboflow.com/latest/" target="_blank" class="flex justify-center"><img src="./rf-supervision-cheatsheet-banner.png" alt="banner"></a> <div class="flex flex-col lg:flex-row text-sm justify-between w-full mt-2 gap-1"><span>Author:
         <a href="https://www.linkedin.com/in/linas-kondrackis/" class="underline text-[#8315F9]" target="_blank">Linas Kondrackis</a>
           Contributors:
         <a href="https://www.linkedin.com/in/bhavay2001/" class="underline text-[#8315F9]" target="_blank">Bhavay Malhotra</a>,
@@ -286,12 +297,11 @@ download_assets(VideoAssets.VEHICLES)
     image=image, resolution_wh=(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>))<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs opacity-90 p-2">Overlay image</p> <div class="bg-slate-300 relative"> <pre data-language="python" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->overlay = np.zeros((<span class="hljs-number">400</span>, <span class="hljs-number">400</span>, <span class="hljs-number">3</span>), dtype=np.uint8)
 resulting_image = sv.overlay_image(
     image=image, overlay=overlay, anchor=(<span class="hljs-number">200</span>, <span class="hljs-number">400</span>)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div> <div class="flex flex-col gap-4"><h2 class="text-xl font-inter"><span class="text-[#8622FF] ml-1 mb-1" data-svelte-h="svelte-t45480">›</span> for Google Colab</h2> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs opacity-90 p-2">Install custom branch of supervision</p> <div class="bg-slate-300 relative"> <pre data-language="bash" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->pip install git+https://github.com/YourName/supervision.git@your-branch<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs opacity-90 p-2">Display image in Colab by converting to PIL</p> <div class="bg-slate-300 relative"> <pre data-language="bash" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->sv.cv2_to_pillow(frame)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div> <div class="bg-[#f2e5ff] mb-2"><p class="text-xs opacity-90 p-2">Display image in Colab by plotting with matplotlib</p> <div class="bg-slate-300 relative"> <pre data-language="bash" class="text-xs opacity-85  svelte-1w9vok"><code class="hljs"><!-- HTML_TAG_START -->%matplotlib inline
-sv.plot_image(frame)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div></div></div></div> </div></div> <footer class="w-full max-w-[1123px] mx-auto text-xs py-2 text-gray-400" data-svelte-h="svelte-1s6vobk">© 2024 Roboflow, Inc. All rights reserved.
-</footer></div> <ul class="_toastContainer svelte-1u812xz"> </ul> 
+sv.plot_image(frame)<!-- HTML_TAG_END --></code></pre>  <button class="copy-button svelte-1ip697x" data-svelte-h="svelte-frintc"><img src="./copy.svg" alt="Copy" class="w-4 h-4"></button></div> </div></div></div></div></div> </div></div> <footer class="w-full px-6 text-xs py-2 text-gray-400" data-svelte-h="svelte-kybl3i"><div class="lg:max-w-[1123px] mx-auto">© 2024 Roboflow, Inc. All rights reserved.</div> </footer></div> <ul class="_toastContainer svelte-1u812xz"> </ul> 
 			
 			<script>
 				{
-					__sveltekit_5jz6q9 = {
+					__sveltekit_clo4hj = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "/cheatsheet-supervision"
 					};
@@ -301,8 +311,8 @@ sv.plot_image(frame)<!-- HTML_TAG_END --></code></pre>  <button class="copy-butt
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.HivP7Bfm.js"),
-						import("./_app/immutable/entry/app.BAuXpI1g.js")
+						import("./_app/immutable/entry/start.X6NH0ZeO.js"),
+						import("./_app/immutable/entry/app.D8au6yl9.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
@@ -314,5 +324,6 @@ sv.plot_image(frame)<!-- HTML_TAG_END --></code></pre>  <button class="copy-butt
 				}
 			</script>
 		</div>
-	</body>
+</body>
+
 </html>
