@@ -129,7 +129,7 @@ sv.plot_image(annotated_image)
           <li>
             <strong>Annotators</strong>: Draw the detections with one of
             <a
-              href="https://supervision.roboflow.com/develop/detection/annotators/"
+              href="https://supervision.roboflow.com/latest/detection/annotators/"
               class="underline text-[#8315F9]"
               target="_blank">20 annotators.</a
             >
@@ -244,7 +244,7 @@ sv.plot_image(annotated_image)`}
         />
         <div class="flex flex-row justify-center text-lg font-bold">
           <a
-            href="https://supervision.roboflow.com/develop/detection/annotators/"
+            href="https://supervision.roboflow.com/latest/detection/annotators/"
             target="_blank"
             class="underline text-blue-500">+18 more annotators</a
           >&nbsp;🎨
@@ -372,7 +372,7 @@ annotated_frame = vertex_annotator.annotate(
         />
         <div class="flex flex-row justify-center text-lg font-bold">
           <a
-            href="https://supervision.roboflow.com/develop/detection/annotators/"
+            href="https://supervision.roboflow.com/latest/detection/annotators/"
             target="_blank"
             class="underline text-blue-500">+1 more annotator</a
           >&nbsp;🎨
@@ -666,7 +666,7 @@ sv.cv2_to_pillow(frame)`}
   </Page>
 </div>
 <footer class="w-full max-w-[1123px] mx-auto text-xs py-2 text-gray-400">
-  &copy; 2024 2024 Roboflow, Inc. All rights reserved.
+  &copy; 2024 Roboflow, Inc. All rights reserved.
 </footer>
 
 <style>
