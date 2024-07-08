@@ -522,6 +522,7 @@ with json_sink as sink:
           code={`
 from inference.models.paligemma.paligemma import PaliGemma
 from PIL import Image
+import supervision as sv
 
 image = Image.open("dog.jpeg")
 prompt = "Detect the dog."
