@@ -29,7 +29,7 @@
         >
         &nbsp;&nbsp;
       </span>
-      <span> supervision v0.21.0 &nbsp;&nbsp; July 2, 2024 </span>
+      <span> supervision v0.22.0 &nbsp;&nbsp; August 5, 2024 </span>
     </div>
   </div>
 
