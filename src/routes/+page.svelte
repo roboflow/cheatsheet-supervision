@@ -84,7 +84,7 @@ detections = sv.Detections.from_inference(results)`}
         <CodeBlock
           buttonId="quickstart-annotate"
           code={`
-annotated_image = sv.BoundingBoxAnnotator().annotate(
+annotated_image = sv.BoxAnnotator().annotate(
     scene=image.copy(), detections=detections
 )
 annotated_image = sv.LabelAnnotator().annotate(
@@ -131,7 +131,7 @@ sv.plot_image(annotated_image)
             <a
               href="https://supervision.roboflow.com/latest/detection/core/"
               class="underline text-[#8315F9]"
-              target="_blank">12 sources.</a
+              target="_blank">11 sources.</a
             >
           </li>
           <li>
@@ -256,10 +256,10 @@ detections = sv.Detections.from_transformers(
         <CodeBlock
           buttonId="run-det-annotator"
           code={`
-bounding_box_annotator = sv.BoundingBoxAnnotator()
+box_annotator = sv.BoxAnnotator()
 label_annotator = sv.LabelAnnotator()
 
-annotated_image = bounding_box_annotator.annotate(
+annotated_image = box_annotator.annotate(
     scene=image.copy(), detections=detections)
 annotated_image = label_annotator.annotate(
     scene=annotated_image, detections=detections)
