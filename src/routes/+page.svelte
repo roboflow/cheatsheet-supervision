@@ -84,7 +84,7 @@ detections = sv.Detections.from_inference(results)`}
         <CodeBlock
           buttonId="quickstart-annotate"
           code={`
-annotated_image = sv.BoundingBoxAnnotator().annotate(
+annotated_image = sv.BoxAnnotator().annotate(
     scene=image.copy(), detections=detections
 )
 annotated_image = sv.LabelAnnotator().annotate(
@@ -131,7 +131,7 @@ sv.plot_image(annotated_image)
             <a
               href="https://supervision.roboflow.com/latest/detection/core/"
               class="underline text-[#8315F9]"
-              target="_blank">12 sources.</a
+              target="_blank">11 sources.</a
             >
           </li>
           <li>
@@ -256,10 +256,10 @@ detections = sv.Detections.from_transformers(
         <CodeBlock
           buttonId="run-det-annotator"
           code={`
-bounding_box_annotator = sv.BoundingBoxAnnotator()
+box_annotator = sv.BoxAnnotator()
 label_annotator = sv.LabelAnnotator()
 
-annotated_image = bounding_box_annotator.annotate(
+annotated_image = box_annotator.annotate(
     scene=image.copy(), detections=detections)
 annotated_image = label_annotator.annotate(
     scene=annotated_image, detections=detections)
@@ -442,7 +442,7 @@ video_info = sv.VideoInfo.from_video_path(video_path=<VIDEO_PATH>)
 frames_generator = sv.get_video_frames_generator(source_path=<VIDEO_PATH>)
 
 model = get_model("yolov8s-640")
-tracker = sv.ByteTrack(frame_rate=video_info.fps)
+tracker = sv.ByteTrack()
 smoother = sv.DetectionsSmoother()
 
 trace_annotator = sv.TraceAnnotator()
@@ -457,7 +457,7 @@ with sv.VideoSink(target_path="out.mp4", video_info=video_info) as sink:
         annotated_frame = trace_annotator.annotate(
             frame.copy(), detections)
 
-        sink.write_frame(frame=frame)`}
+        sink.write_frame(frame=annotated_frame)`}
         />
       </Section>
       <Section header="Count objects crossing a LineZone">
@@ -592,17 +592,18 @@ detections = sv.Detections.from_lmm(
         <CodeBlock
           buttonId="compute-metrics"
           code={`
-dataset = sv.DetectionDataset.from_yolo("<PATH_TO_DATASET>")
+import supervision as sv
+from supervision.metrics import F1Score
 
-model = get_model("yolov8s-640")
-def callback(image: np.ndarray) -> sv.Detections:
-    results = model.infer(image)[0]
-    return sv.Detections.from_inference(results)
+predictions = sv.Detections(...)
+targets = sv.Detections(...)
 
-confusion_matrix = sv.ConfusionMatrix.benchmark(
-    dataset=dataset, callback=callback
-)
-print(confusion_matrix.matrix)
+f1_metric = F1Score()
+f1_result = f1_metric.update(predictions, targets).compute()
+
+print(f1_result)
+print(f1_result.f1_50)
+print(f1_result.small_objects.f1_50)
                 `}
         />
       </Section>
