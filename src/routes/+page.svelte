@@ -442,7 +442,7 @@ video_info = sv.VideoInfo.from_video_path(video_path=<VIDEO_PATH>)
 frames_generator = sv.get_video_frames_generator(source_path=<VIDEO_PATH>)
 
 model = get_model("yolov8s-640")
-tracker = sv.ByteTrack(frame_rate=video_info.fps)
+tracker = sv.ByteTrack()
 smoother = sv.DetectionsSmoother()
 
 trace_annotator = sv.TraceAnnotator()
@@ -592,17 +592,18 @@ detections = sv.Detections.from_lmm(
         <CodeBlock
           buttonId="compute-metrics"
           code={`
-dataset = sv.DetectionDataset.from_yolo("<PATH_TO_DATASET>")
+import supervision as sv
+from supervision.metrics import F1Score
 
-model = get_model("yolov8s-640")
-def callback(image: np.ndarray) -> sv.Detections:
-    results = model.infer(image)[0]
-    return sv.Detections.from_inference(results)
+predictions = sv.Detections(...)
+targets = sv.Detections(...)
 
-confusion_matrix = sv.ConfusionMatrix.benchmark(
-    dataset=dataset, callback=callback
-)
-print(confusion_matrix.matrix)
+f1_metric = F1Score()
+f1_result = f1_metric.update(predictions, targets).compute()
+
+print(f1_result)
+print(f1_result.f1_50)
+print(f1_result.small_objects.f1_50)
                 `}
         />
       </Section>
