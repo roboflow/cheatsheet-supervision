@@ -457,7 +457,7 @@ with sv.VideoSink(target_path="out.mp4", video_info=video_info) as sink:
         annotated_frame = trace_annotator.annotate(
             frame.copy(), detections)
 
-        sink.write_frame(frame=frame)`}
+        sink.write_frame(frame=annotated_frame)`}
         />
       </Section>
       <Section header="Count objects crossing a LineZone">
